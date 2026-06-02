@@ -121,8 +121,8 @@ function Hero() {
           {/* HUD micro stats */}
           <div className="mt-10 grid grid-cols-3 gap-3 max-w-md">
             {[
-              ["< 60s", "Launch"],
-              ["6 KM", "Range"],
+              ["< 30s", "Launch"],
+              ["2 KM", "Range"],
               ["24/7", "Standby"],
             ].map(([v, l]) => (
               <div key={l} className="glass p-3 text-center">
