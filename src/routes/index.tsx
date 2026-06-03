@@ -143,15 +143,27 @@ function Hero() {
             {/* glow */}
             <div className="absolute inset-10 rounded-full bg-[var(--neon-blue)]/15 blur-3xl animate-pulse-glow" />
             {/* drone */}
-            <div className="absolute inset-8 rounded-full overflow-hidden glow-border animate-float">
-              <img
-                src={heroDrone}
-                alt="ResQ Sentinel autonomous emergency hexacopter drone over smart city"
-                width={1536}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+            <div className="absolute inset-8 animate-float">
+              <div className="relative h-full w-full">
+                <img
+                  src={heroDrone}
+                  alt="ResQ Sentinel autonomous emergency hexacopter drone, top-down view"
+                  width={1024}
+                  height={1024}
+                  className="h-full w-full object-contain drop-shadow-[0_30px_60px_rgba(0,160,255,0.35)]"
+                />
+                {/* spinning propellers — positioned over each of the six motor hubs */}
+                {[
+                  { top: "5.8%",  left: "50%"   },
+                  { top: "26.4%", left: "81.5%" },
+                  { top: "69.3%", left: "81.5%" },
+                  { top: "89.8%", left: "50%"   },
+                  { top: "69.3%", left: "18.5%" },
+                  { top: "26.4%", left: "18.5%" },
+                ].map((pos, i) => (
+                  <Propeller key={i} style={pos} reverse={i % 2 === 1} delay={i * 0.05} />
+                ))}
+              </div>
             </div>
             {/* HUD corners */}
             {["top-0 left-0", "top-0 right-0 rotate-90", "bottom-0 right-0 rotate-180", "bottom-0 left-0 -rotate-90"].map((p) => (
