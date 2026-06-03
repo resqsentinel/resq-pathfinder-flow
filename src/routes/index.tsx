@@ -7,7 +7,7 @@ import {
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
   MessageSquare, Send,
 } from "lucide-react";
-import heroDrone from "@/assets/hero-drone.jpg";
+import heroDrone from "@/assets/hero-drone.png";
 import smartCity from "@/assets/smart-city.jpg";
 import { Nav } from "@/components/site/Nav";
 import { NeonFrame, ParticleField, useScrollReveal } from "@/components/site/NeonFrame";
