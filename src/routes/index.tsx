@@ -7,7 +7,7 @@ import {
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
   MessageSquare, Send,
 } from "lucide-react";
-import heroDrone from "@/assets/hero-drone.jpg";
+import heroDrone from "@/assets/hero-drone.png";
 import smartCity from "@/assets/smart-city.jpg";
 import { Nav } from "@/components/site/Nav";
 import { NeonFrame, ParticleField, useScrollReveal } from "@/components/site/NeonFrame";
@@ -80,6 +80,54 @@ function IconChip({ Icon }: { Icon: React.ComponentType<{ className?: string }> 
   );
 }
 
+/* Spinning propeller overlay — 3-blade SVG centered on a motor hub */
+function Propeller({ style, reverse, delay }: { style: React.CSSProperties; reverse?: boolean; delay?: number }) {
+  return (
+    <div
+      className="absolute pointer-events-none"
+      style={{
+        ...style,
+        width: "22%",
+        height: "22%",
+        transform: "translate(-50%, -50%)",
+      }}
+      aria-hidden
+    >
+      {/* motion-blur disc to sell the spin */}
+      <div
+        className="absolute inset-0 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(180,220,255,0.18) 0%, rgba(120,180,255,0.10) 55%, transparent 72%)",
+          filter: "blur(4px)",
+        }}
+      />
+      <svg
+        viewBox="-50 -50 100 100"
+        className="absolute inset-0 h-full w-full"
+        style={{
+          animation: `spin-slow 0.35s linear infinite ${reverse ? "reverse" : "normal"}`,
+          animationDelay: `${delay ?? 0}s`,
+          filter: "blur(1.2px) drop-shadow(0 0 6px rgba(120,200,255,0.45))",
+        }}
+      >
+        {[0, 120, 240].map((a) => (
+          <ellipse
+            key={a}
+            cx="0"
+            cy="0"
+            rx="45"
+            ry="4.5"
+            fill="rgba(220,235,255,0.55)"
+            transform={`rotate(${a})`}
+          />
+        ))}
+        <circle cx="0" cy="0" r="6" fill="rgba(40,60,90,0.9)" />
+      </svg>
+    </div>
+  );
+}
+
 /* ---------- HERO ---------- */
 
 function Hero() {
@@ -143,15 +191,27 @@ function Hero() {
             {/* glow */}
             <div className="absolute inset-10 rounded-full bg-[var(--neon-blue)]/15 blur-3xl animate-pulse-glow" />
             {/* drone */}
-            <div className="absolute inset-8 rounded-full overflow-hidden glow-border animate-float">
-              <img
-                src={heroDrone}
-                alt="ResQ Sentinel autonomous emergency hexacopter drone over smart city"
-                width={1536}
-                height={1024}
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+            <div className="absolute inset-8 animate-float">
+              <div className="relative h-full w-full">
+                <img
+                  src={heroDrone}
+                  alt="ResQ Sentinel autonomous emergency hexacopter drone, top-down view"
+                  width={1024}
+                  height={1024}
+                  className="h-full w-full object-contain drop-shadow-[0_30px_60px_rgba(0,160,255,0.35)]"
+                />
+                {/* spinning propellers — positioned over each of the six motor hubs */}
+                {[
+                  { top: "5.8%",  left: "50%"   },
+                  { top: "26.4%", left: "81.5%" },
+                  { top: "69.3%", left: "81.5%" },
+                  { top: "89.8%", left: "50%"   },
+                  { top: "69.3%", left: "18.5%" },
+                  { top: "26.4%", left: "18.5%" },
+                ].map((pos, i) => (
+                  <Propeller key={i} style={pos} reverse={i % 2 === 1} delay={i * 0.05} />
+                ))}
+              </div>
             </div>
             {/* HUD corners */}
             {["top-0 left-0", "top-0 right-0 rotate-90", "bottom-0 right-0 rotate-180", "bottom-0 left-0 -rotate-90"].map((p) => (
