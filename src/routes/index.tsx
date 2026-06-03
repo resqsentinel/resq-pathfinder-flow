@@ -7,7 +7,8 @@ import {
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
   MessageSquare, Send,
 } from "lucide-react";
-import heroDrone from "@/assets/hero-drone.png";
+import heroDroneAsset from "@/assets/hero-drone.png.asset.json";
+const heroDrone = heroDroneAsset.url;
 import smartCity from "@/assets/smart-city.jpg";
 import { Nav } from "@/components/site/Nav";
 import { NeonFrame, ParticleField, useScrollReveal } from "@/components/site/NeonFrame";
@@ -205,17 +206,6 @@ function Hero() {
                   height={1024}
                   className="h-full w-full object-contain drop-shadow-[0_30px_60px_rgba(0,160,255,0.35)]"
                 />
-                {/* spinning propellers — positioned over each of the six motor hubs */}
-                {[
-                  { top: "5.8%",  left: "50%"   },
-                  { top: "26.4%", left: "81.5%" },
-                  { top: "69.3%", left: "81.5%" },
-                  { top: "89.8%", left: "50%"   },
-                  { top: "69.3%", left: "18.5%" },
-                  { top: "26.4%", left: "18.5%" },
-                ].map((pos, i) => (
-                  <Propeller key={i} style={pos} reverse={i % 2 === 1} delay={i * 0.05} />
-                ))}
               </div>
             </div>
             {/* HUD corners */}
