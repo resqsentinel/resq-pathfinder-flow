@@ -5,7 +5,7 @@ import {
   Cpu, Compass, Satellite, Radio, Bot, Siren, Lightbulb, Route as RouteIcon, Anchor, ShieldCheck,
   ShieldAlert, BatteryCharging, MapPinned, LandPlot, Home as HomeIcon, ListChecks, Lock,
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
-  MessageSquare, Send,
+  MessageSquare, Send, Play, CheckCircle2, Crosshair, Upload, Power,
 } from "lucide-react";
 import smartCity from "@/assets/smart-city.jpg";
 import { Nav } from "@/components/site/Nav";
