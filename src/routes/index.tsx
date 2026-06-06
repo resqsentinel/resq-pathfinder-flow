@@ -69,7 +69,7 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: React.
 
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`glass glow-border p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(80,180,255,0.35)] ${className}`}>
+    <div className={`glass glow-border p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(0,255,136,0.35)] ${className}`}>
       {children}
     </div>
   );
@@ -111,7 +111,7 @@ function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#solution"
-              className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] shadow-[0_10px_40px_-10px_rgba(80,180,255,0.7)] hover:shadow-[0_15px_50px_-10px_rgba(80,180,255,1)] transition-all">
+              className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] shadow-[0_10px_40px_-10px_rgba(0,255,136,0.7)] hover:shadow-[0_15px_50px_-10px_rgba(0,255,136,1)] transition-all">
               <Play className="h-4 w-4" /> Watch Mission
             </a>
             <a href="#features"
@@ -562,12 +562,12 @@ function Contact() {
               required
               rows={5}
               placeholder="Tell us about your city or project..."
-              className="w-full rounded-md bg-[var(--input)]/40 border border-[var(--neon-blue)]/30 px-4 py-3 text-sm focus:outline-none focus:border-[var(--neon-cyan)] focus:shadow-[0_0_20px_-5px_rgba(80,180,255,0.6)] transition resize-none"
+              className="w-full rounded-md bg-[var(--input)]/40 border border-[var(--neon-blue)]/30 px-4 py-3 text-sm focus:outline-none focus:border-[var(--neon-cyan)] focus:shadow-[0_0_20px_-5px_rgba(0,255,136,0.6)] transition resize-none"
             />
           </div>
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] hover:shadow-[0_15px_50px_-10px_rgba(80,180,255,1)] transition-all"
+            className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] hover:shadow-[0_15px_50px_-10px_rgba(0,255,136,1)] transition-all"
           >
             <Send className="h-4 w-4" /> {sent ? "Message Sent" : "Send Message"}
           </button>
@@ -587,7 +587,7 @@ function Field({ Icon, label, type, placeholder }: { Icon: React.ComponentType<{
         required
         type={type}
         placeholder={placeholder}
-        className="w-full rounded-md bg-[var(--input)]/40 border border-[var(--neon-blue)]/30 px-4 py-3 text-sm focus:outline-none focus:border-[var(--neon-cyan)] focus:shadow-[0_0_20px_-5px_rgba(80,180,255,0.6)] transition"
+        className="w-full rounded-md bg-[var(--input)]/40 border border-[var(--neon-blue)]/30 px-4 py-3 text-sm focus:outline-none focus:border-[var(--neon-cyan)] focus:shadow-[0_0_20px_-5px_rgba(0,255,136,0.6)] transition"
       />
     </div>
   );
@@ -696,16 +696,16 @@ function TrafficClearance() {
             {/* drone */}
             <div className="absolute top-[24%] left-1/2 -translate-x-1/2 drone-fly">
               <div className="relative">
-                <div className="h-2 w-10 rounded-full bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-blue)] shadow-[0_0_30px_rgba(80,180,255,0.9)]" />
+                <div className="h-2 w-10 rounded-full bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-blue)] shadow-[0_0_30px_rgba(0,255,136,0.9)]" />
                 <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-red-500 animate-pulse shadow-[0_0_20px_rgba(255,60,60,0.9)]" />
               </div>
               <div className="mt-1 mx-auto h-24 w-1 bg-gradient-to-b from-[var(--neon-cyan)]/70 to-transparent" />
             </div>
             {/* ambulance */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 ambulance-rise">
-              <div className="relative h-8 w-14 rounded bg-white/90 border border-[var(--neon-blue)]/60 shadow-[0_0_30px_rgba(80,180,255,0.6)]">
+              <div className="relative h-8 w-14 rounded bg-white/90 border border-[var(--neon-blue)]/60 shadow-[0_0_30px_rgba(0,255,136,0.6)]">
                 <div className="absolute -top-1 left-1 h-1.5 w-3 rounded-sm bg-red-500 animate-pulse" />
-                <div className="absolute -top-1 right-1 h-1.5 w-3 rounded-sm bg-blue-500 animate-pulse" style={{ animationDelay: "0.2s" }} />
+                <div className="absolute -top-1 right-1 h-1.5 w-3 rounded-sm bg-[var(--neon-cyan)] animate-pulse" style={{ animationDelay: "0.2s" }} />
                 <div className="absolute inset-0 flex items-center justify-center text-[8px] font-black text-red-600">+</div>
               </div>
             </div>
