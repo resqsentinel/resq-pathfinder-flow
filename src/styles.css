@@ -239,35 +239,8 @@
     animation: grid-move 20s linear infinite;
   }
 
-  /* Drone pitch/roll micro-motion — layered on top of vertical float */
-  @keyframes drone-bob {
-    0%   { transform: perspective(900px) rotateX(0deg)   rotateY(0deg)   rotateZ(0deg); }
-    20%  { transform: perspective(900px) rotateX(2.2deg) rotateY(-1.6deg) rotateZ(-0.6deg); }
-    45%  { transform: perspective(900px) rotateX(-1.4deg) rotateY(1.8deg) rotateZ(0.8deg); }
-    70%  { transform: perspective(900px) rotateX(1.6deg) rotateY(1.2deg) rotateZ(-0.4deg); }
-    100% { transform: perspective(900px) rotateX(0deg)   rotateY(0deg)   rotateZ(0deg); }
-  }
-  .drone-bob { animation: drone-bob 7s ease-in-out infinite; transform-origin: 50% 50%; }
-
-  /* Rotor wash — downdraft glow on the ground beneath the drone */
-  @keyframes rotor-wash {
-    0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); filter: blur(28px); }
-    50%      { opacity: 0.9;  transform: translateX(-50%) scale(1.08); filter: blur(34px); }
-  }
-  .rotor-wash {
-    background: radial-gradient(
-      ellipse at center,
-      oklch(0.82 0.18 200 / 55%) 0%,
-      oklch(0.72 0.2 235 / 35%) 35%,
-      oklch(0.72 0.2 235 / 10%) 65%,
-      transparent 80%
-    );
-    animation: rotor-wash 2.6s ease-in-out infinite;
-    mix-blend-mode: screen;
-  }
-
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .drone-bob, .rotor-wash, .animate-float { animation: none !important; }
+    .animate-float { animation: none !important; }
   }
 }
