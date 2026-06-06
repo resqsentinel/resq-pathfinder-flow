@@ -760,18 +760,3 @@ function Closing() {
   );
 }
 
-function FooterPlaceholder() {
-  return (
-    <footer className="relative z-10 mt-10 border-t border-[var(--neon-blue)]/20">
-      <div className="mx-auto max-w-7xl px-4 py-12 text-center">
-        <div className="text-3xl md:text-4xl font-black tracking-tight text-gradient neon-text">RESQ SENTINEL</div>
-        <p className="mt-3 text-sm text-foreground/90">Clearing the Path Before Every Second Counts.</p>
-        <p className="mt-1 text-xs text-muted-foreground">Autonomous Emergency Traffic Clearance Drone System</p>
-        <div className="mt-6 h-px max-w-md mx-auto border-flow" />
-        <p className="mt-6 text-[11px] uppercase tracking-widest text-muted-foreground">
-          © {new Date().getFullYear()} ResQ Sentinel · All systems nominal
-        </p>
-      </div>
-    </footer>
-  );
-}
