@@ -610,3 +610,168 @@ function Footer() {
     </footer>
   );
 }
+
+/* ---------- LAUNCH SEQUENCE ---------- */
+
+function LaunchSequence() {
+  const steps = [
+    { Icon: Crosshair, label: "GPS Lock Acquired", code: "GPS · 12 SAT" },
+    { Icon: Upload, label: "Mission Uploaded", code: "WPT · 24/24" },
+    { Icon: Power, label: "Flight Systems Armed", code: "ARM · OK" },
+    { Icon: PlaneTakeoff, label: "Autonomous Launch", code: "ALT · +18m" },
+  ];
+  return (
+    <section className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4">
+        <SectionHeader
+          eyebrow="Section 03 · Launch Sequence"
+          title={<>Drone <span className="text-gradient">Launch Sequence</span></>}
+          sub="A four-stage autonomous handshake between dispatch, autopilot and airframe — completed in under thirty seconds."
+        />
+        <div className="glass glow-border p-6 md:p-10 reveal">
+          <div className="flex items-center justify-between text-[10px] uppercase tracking-widest text-muted-foreground mb-6">
+            <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[var(--neon-cyan)] animate-pulse" /> Command Center · Live</span>
+            <span>T − 00:00:28</span>
+          </div>
+          <div className="grid md:grid-cols-4 gap-4">
+            {steps.map(({ Icon, label, code }, i) => (
+              <div key={label} className="relative rounded-lg border border-[var(--neon-blue)]/30 bg-[var(--input)]/30 p-5 overflow-hidden">
+                <div className="absolute inset-x-0 bottom-0 h-px border-flow" style={{ animationDelay: `${i * 0.4}s` }} />
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-[10px] uppercase tracking-widest text-[var(--neon-cyan)]">Stage {String(i + 1).padStart(2, "0")}</div>
+                  <CheckCircle2 className="h-4 w-4 text-[var(--neon-cyan)]" />
+                </div>
+                <Icon className="h-7 w-7 text-[var(--neon-cyan)] mb-3" />
+                <div className="text-sm font-bold">{label}</div>
+                <div className="mt-2 font-mono text-[10px] text-muted-foreground">{code}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] uppercase tracking-widest">
+            {[["Battery", "98%"], ["Wind", "4 m/s"], ["Signal", "−62 dBm"], ["Heading", "N 042°"]].map(([k, v]) => (
+              <div key={k} className="flex items-center justify-between rounded-md bg-[var(--input)]/40 px-3 py-2">
+                <span className="text-muted-foreground">{k}</span>
+                <span className="text-gradient font-bold">{v}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- TRAFFIC CLEARANCE ---------- */
+
+function TrafficClearance() {
+  return (
+    <section className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4">
+        <SectionHeader
+          eyebrow="Section 04 · Live Operation"
+          title={<>Traffic <span className="text-gradient">Clearance Operation</span></>}
+          sub="The sentinel flies the corridor ahead of the ambulance, broadcasting sirens, lights and signal sync — the road parts before arrival."
+        />
+        <div className="relative glass glow-border p-6 md:p-10 reveal overflow-hidden">
+          <div className="relative h-72 md:h-96 rounded-lg overflow-hidden bg-gradient-to-b from-[var(--deep-navy)] to-background">
+            {/* perspective road */}
+            <div className="absolute inset-0" style={{ perspective: "800px" }}>
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 w-[160%] h-[120%] origin-top"
+                style={{ transform: "translate(-50%, -10%) rotateX(62deg)" }}>
+                <div className="relative w-full h-full bg-[oklch(0.18_0.04_260)] border-t border-[var(--neon-blue)]/40">
+                  {/* lane dashes */}
+                  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-1 dashed-flow" />
+                  <div className="absolute inset-y-0 left-1/3 w-px bg-[var(--neon-blue)]/30" />
+                  <div className="absolute inset-y-0 right-1/3 w-px bg-[var(--neon-blue)]/30" />
+                </div>
+              </div>
+            </div>
+            {/* sky glow */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 h-40 w-[80%] bg-[var(--neon-blue)]/20 blur-3xl" />
+            {/* yielding cars */}
+            <div className="absolute top-[58%] left-[18%] h-3 w-6 rounded-sm bg-foreground/40 yield-left" />
+            <div className="absolute top-[64%] right-[18%] h-3 w-6 rounded-sm bg-foreground/40 yield-right" />
+            <div className="absolute top-[70%] left-[26%] h-3 w-7 rounded-sm bg-foreground/30 yield-left" style={{ animationDelay: "0.5s" }} />
+            <div className="absolute top-[74%] right-[26%] h-3 w-7 rounded-sm bg-foreground/30 yield-right" style={{ animationDelay: "0.7s" }} />
+            {/* drone */}
+            <div className="absolute top-[24%] left-1/2 -translate-x-1/2 drone-fly">
+              <div className="relative">
+                <div className="h-2 w-10 rounded-full bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-blue)] shadow-[0_0_30px_rgba(80,180,255,0.9)]" />
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-red-500 animate-pulse shadow-[0_0_20px_rgba(255,60,60,0.9)]" />
+              </div>
+              <div className="mt-1 mx-auto h-24 w-1 bg-gradient-to-b from-[var(--neon-cyan)]/70 to-transparent" />
+            </div>
+            {/* ambulance */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 ambulance-rise">
+              <div className="relative h-8 w-14 rounded bg-white/90 border border-[var(--neon-blue)]/60 shadow-[0_0_30px_rgba(80,180,255,0.6)]">
+                <div className="absolute -top-1 left-1 h-1.5 w-3 rounded-sm bg-red-500 animate-pulse" />
+                <div className="absolute -top-1 right-1 h-1.5 w-3 rounded-sm bg-blue-500 animate-pulse" style={{ animationDelay: "0.2s" }} />
+                <div className="absolute inset-0 flex items-center justify-center text-[8px] font-black text-red-600">+</div>
+              </div>
+            </div>
+            {/* HUD overlays */}
+            <div className="absolute top-3 left-3 glass px-2 py-1 text-[9px] uppercase tracking-widest">
+              <span className="text-muted-foreground">CORRIDOR · </span><span className="text-gradient font-bold">CLEAR</span>
+            </div>
+            <div className="absolute top-3 right-3 glass px-2 py-1 text-[9px] uppercase tracking-widest">
+              <span className="text-muted-foreground">ETA · </span><span className="text-gradient font-bold">02:14</span>
+            </div>
+          </div>
+          <div className="mt-6 grid sm:grid-cols-4 gap-3 text-xs">
+            {[
+              ["Sirens", "Active"],
+              ["LED Beacon", "Strobe"],
+              ["Signal Sync", "On"],
+              ["Lanes Yielding", "100%"],
+            ].map(([k, v]) => (
+              <div key={k} className="flex items-center justify-between rounded-md bg-[var(--input)]/40 px-3 py-2 uppercase tracking-widest text-[10px]">
+                <span className="text-muted-foreground">{k}</span>
+                <span className="text-gradient font-bold">{v}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- CLOSING ---------- */
+
+function Closing() {
+  return (
+    <section className="relative py-32 md:py-44 overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-20" aria-hidden />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[var(--neon-blue)]/15 blur-[140px]" aria-hidden />
+      <div className="relative mx-auto max-w-5xl px-4 text-center reveal">
+        <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-muted-foreground mb-8">
+          <span className="h-1.5 w-1.5 rounded-full bg-[var(--neon-cyan)] animate-pulse" /> Mission Statement
+        </div>
+        <h2 className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
+          Every Second Saved Is{" "}
+          <span className="text-gradient neon-text">A Life Protected.</span>
+        </h2>
+        <p className="mt-8 text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          ResQ Sentinel is redefining emergency response through autonomous aerial traffic management.
+        </p>
+        <div className="mt-10 h-px max-w-md mx-auto border-flow" />
+      </div>
+    </section>
+  );
+}
+
+function FooterPlaceholder() {
+  return (
+    <footer className="relative z-10 mt-10 border-t border-[var(--neon-blue)]/20">
+      <div className="mx-auto max-w-7xl px-4 py-12 text-center">
+        <div className="text-3xl md:text-4xl font-black tracking-tight text-gradient neon-text">RESQ SENTINEL</div>
+        <p className="mt-3 text-sm text-foreground/90">Clearing the Path Before Every Second Counts.</p>
+        <p className="mt-1 text-xs text-muted-foreground">Autonomous Emergency Traffic Clearance Drone System</p>
+        <div className="mt-6 h-px max-w-md mx-auto border-flow" />
+        <p className="mt-6 text-[11px] uppercase tracking-widest text-muted-foreground">
+          © {new Date().getFullYear()} ResQ Sentinel · All systems nominal
+        </p>
+      </div>
+    </footer>
+  );
+}
