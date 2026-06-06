@@ -190,34 +190,6 @@ function Hero() {
             <div className="absolute inset-12 rounded-full border border-[var(--neon-blue)]/20" />
             {/* glow */}
             <div className="absolute inset-10 rounded-full bg-[var(--neon-blue)]/15 blur-3xl animate-pulse-glow" />
-            {/* rotor wash — radial ground-glow under the drone */}
-            <div
-              className="absolute left-1/2 bottom-[6%] -translate-x-1/2 w-[70%] h-[18%] rounded-[50%] pointer-events-none rotor-wash"
-              aria-hidden
-            />
-            {/* drone — float (vertical bob) + subtle pitch/roll */}
-            <div className="absolute inset-8 animate-float will-change-transform">
-              <div className="relative h-full w-full drone-bob will-change-transform" style={{ transformStyle: "preserve-3d" }}>
-                <img
-                  src={heroDrone}
-                  alt="ResQ Sentinel autonomous emergency hexacopter drone, top-down view"
-                  width={1024}
-                  height={1024}
-                  className="h-full w-full object-contain drop-shadow-[0_30px_60px_rgba(0,160,255,0.35)]"
-                />
-                {/* spinning propellers — positioned over each of the six motor hubs */}
-                {[
-                  { top: "5.8%",  left: "50%"   },
-                  { top: "26.4%", left: "81.5%" },
-                  { top: "69.3%", left: "81.5%" },
-                  { top: "89.8%", left: "50%"   },
-                  { top: "69.3%", left: "18.5%" },
-                  { top: "26.4%", left: "18.5%" },
-                ].map((pos, i) => (
-                  <Propeller key={i} style={pos} reverse={i % 2 === 1} delay={i * 0.05} />
-                ))}
-              </div>
-            </div>
             {/* HUD corners */}
             {["top-0 left-0", "top-0 right-0 rotate-90", "bottom-0 right-0 rotate-180", "bottom-0 left-0 -rotate-90"].map((p) => (
               <div key={p} className={`absolute ${p} h-8 w-8 border-t-2 border-l-2 border-[var(--neon-cyan)]`} />
