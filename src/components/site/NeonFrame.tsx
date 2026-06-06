@@ -52,8 +52,8 @@ export function ParticleField() {
         if (p.y < 0 || p.y > h) p.vy *= -1;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(120, 200, 255, 0.7)";
-        ctx.shadowColor = "rgba(80, 170, 255, 0.9)";
+        ctx.fillStyle = "rgba(124, 255, 178, 0.7)";
+        ctx.shadowColor = "rgba(0, 255, 136, 0.9)";
         ctx.shadowBlur = 8;
         ctx.fill();
       }
@@ -62,7 +62,7 @@ export function ParticleField() {
           const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
           const d2 = dx * dx + dy * dy;
           if (d2 < 14000) {
-            ctx.strokeStyle = `rgba(100, 180, 255, ${0.15 * (1 - d2 / 14000)})`;
+            ctx.strokeStyle = `rgba(0, 255, 136, ${0.15 * (1 - d2 / 14000)})`;
             ctx.lineWidth = 0.6;
             ctx.shadowBlur = 0;
             ctx.beginPath();
