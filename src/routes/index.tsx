@@ -97,26 +97,27 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
             Emergency Response · Autonomous Aerial
           </div>
+          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-[var(--neon-cyan)] mb-4">Introducing</p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
-            <span className="text-gradient neon-text">RESQ</span><br />
-            <span className="text-gradient neon-text">SENTINEL</span>
+            <span className="text-gradient neon-text">ResQ</span>{" "}
+            <span className="text-gradient neon-text">Sentinel</span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-foreground/90 max-w-xl">
-            Clearing the Path Before Every Second Counts.
+          <p className="mt-6 text-lg md:text-2xl text-foreground/90 max-w-xl font-light">
+            The World's First Autonomous Emergency Traffic Clearance Drone.
           </p>
-          <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-xl">
-            Autonomous Emergency Traffic Clearance Drone System — a fleet of intelligent
-            hexacopters that fly ahead of ambulances and clear the road before they arrive.
+          <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-xl">
+            Aerial intelligence designed to save critical minutes during emergency response
+            by clearing traffic ahead of ambulances and rescue vehicles.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#features"
+            <a href="#solution"
               className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] shadow-[0_10px_40px_-10px_rgba(80,180,255,0.7)] hover:shadow-[0_15px_50px_-10px_rgba(80,180,255,1)] transition-all">
-              Explore Technology
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <Play className="h-4 w-4" /> Watch Mission
             </a>
-            <a href="#architecture"
+            <a href="#features"
               className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider glass glow-border hover:bg-white/5 transition">
-              View System Architecture
+              Explore Technology
+              <ArrowRight className="h-4 w-4" />
             </a>
           </div>
 
