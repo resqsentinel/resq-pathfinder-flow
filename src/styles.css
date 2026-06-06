@@ -63,38 +63,38 @@
 
 :root {
   --radius: 0.75rem;
-  /* ResQ Sentinel — emerald-green futuristic dark theme */
-  --background: oklch(0.13 0.03 260);
+  /* ResQ Sentinel — crimson emergency command theme */
+  --background: oklch(0.05 0.005 20);
   --foreground: oklch(0.97 0.01 240);
-  --card: oklch(0.18 0.03 260 / 60%);
+  --card: oklch(0.1 0.01 20 / 70%);
   --card-foreground: oklch(0.97 0.01 240);
-  --popover: oklch(0.16 0.03 260);
+  --popover: oklch(0.08 0.01 20);
   --popover-foreground: oklch(0.97 0.01 240);
-  --primary: oklch(0.85 0.24 152);
-  --primary-foreground: oklch(0.1 0.03 260);
-  --secondary: oklch(0.22 0.04 260);
+  --primary: oklch(0.62 0.27 25);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.12 0.01 20);
   --secondary-foreground: oklch(0.97 0.01 240);
-  --muted: oklch(0.2 0.03 260);
-  --muted-foreground: oklch(0.7 0.04 240);
-  --accent: oklch(0.9 0.18 152);
-  --accent-foreground: oklch(0.1 0.03 260);
+  --muted: oklch(0.12 0.01 20);
+  --muted-foreground: oklch(0.7 0.02 20);
+  --accent: oklch(0.75 0.2 60);
+  --accent-foreground: oklch(0.05 0 0);
   --destructive: oklch(0.65 0.24 25);
   --destructive-foreground: oklch(0.97 0.01 240);
-  --border: oklch(0.85 0.24 152 / 25%);
-  --input: oklch(0.25 0.03 260);
-  --ring: oklch(0.85 0.24 152);
+  --border: oklch(0.62 0.27 25 / 25%);
+  --input: oklch(0.15 0.01 20);
+  --ring: oklch(0.62 0.27 25);
 
-  /* Emerald neon palette: #00FF88 primary, #00C853 secondary, #7CFFB2 glow */
-  --neon-blue: oklch(0.85 0.24 152);   /* kept name, value = emerald green #00FF88 */
-  --neon-cyan: oklch(0.92 0.18 152);   /* kept name, value = light emerald #7CFFB2 */
-  --deep-navy: oklch(0.08 0.03 265);   /* #050816 */
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.4 0.18 152 / 35%), transparent 60%), linear-gradient(180deg, oklch(0.08 0.03 265), oklch(0.13 0.03 260));
+  /* Crimson emergency palette: #FF1744 / #FF9100 / #050505 */
+  --neon-blue: oklch(0.62 0.27 25);    /* crimson #FF1744 */
+  --neon-cyan: oklch(0.75 0.2 60);     /* amber  #FF9100 */
+  --deep-navy: oklch(0.05 0 0);        /* #050505 */
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.35 0.2 25 / 35%), transparent 60%), linear-gradient(180deg, #050505, #0a0303);
   --gradient-primary: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
-  --gradient-text: linear-gradient(135deg, oklch(0.95 0.18 150), oklch(0.85 0.24 152));
-  --shadow-neon: 0 0 30px oklch(0.85 0.24 152 / 55%), 0 0 60px oklch(0.85 0.24 152 / 28%);
-  --shadow-glass: 0 8px 32px oklch(0.05 0.02 260 / 60%);
-  --glass-bg: linear-gradient(135deg, oklch(1 0 0 / 6%), oklch(1 0 0 / 2%));
-  --glass-border: oklch(0.85 0.24 152 / 30%);
+  --gradient-text: linear-gradient(135deg, #FFFFFF, #FF1744);
+  --shadow-neon: 0 0 30px oklch(0.62 0.27 25 / 55%), 0 0 60px oklch(0.62 0.27 25 / 28%);
+  --shadow-glass: 0 8px 32px oklch(0.02 0 0 / 80%);
+  --glass-bg: linear-gradient(135deg, oklch(1 0 0 / 4%), oklch(1 0 0 / 1%));
+  --glass-border: oklch(0.62 0.27 25 / 30%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
