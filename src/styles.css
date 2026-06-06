@@ -243,4 +243,39 @@
   @media (prefers-reduced-motion: reduce) {
     .animate-float { animation: none !important; }
   }
+
+  @keyframes dashed-flow {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 -40px; }
+  }
+  .dashed-flow {
+    background-image: linear-gradient(to bottom, var(--neon-cyan) 0 20px, transparent 20px 40px);
+    background-size: 100% 40px;
+    animation: dashed-flow 0.6s linear infinite;
+    box-shadow: 0 0 12px var(--neon-cyan);
+  }
+
+  @keyframes drone-fly {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+  }
+  .drone-fly { animation: drone-fly 2.4s ease-in-out infinite; }
+
+  @keyframes ambulance-rise {
+    0% { transform: translate(-50%, 30px); opacity: 0.6; }
+    100% { transform: translate(-50%, 0); opacity: 1; }
+  }
+  .ambulance-rise { animation: ambulance-rise 3s ease-out infinite alternate; }
+
+  @keyframes yield-left {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-18px); }
+  }
+  .yield-left { animation: yield-left 2.6s ease-in-out infinite; }
+
+  @keyframes yield-right {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(18px); }
+  }
+  .yield-right { animation: yield-right 2.6s ease-in-out infinite; }
 }
