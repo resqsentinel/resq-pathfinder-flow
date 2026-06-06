@@ -37,12 +37,15 @@ function Index() {
         <Hero />
         <Problem />
         <Solution />
+        <LaunchSequence />
+        <TrafficClearance />
         <Architecture />
         <Features />
         <Safety />
         <Innovation />
         <FutureVision />
         <Stats />
+        <Closing />
         <Contact />
       </main>
       <Footer />
