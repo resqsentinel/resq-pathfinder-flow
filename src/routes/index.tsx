@@ -6,6 +6,7 @@ import {
   ShieldAlert, BatteryCharging, MapPinned, LandPlot, Home as HomeIcon, ListChecks, Lock,
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
   MessageSquare, Send, Play, CheckCircle2, Crosshair, Upload, Power,
+  FileText, Target, Ambulance, Flag, Brain, Waypoints,
 } from "lucide-react";
 import smartCity from "@/assets/smart-city.jpg";
 import { Nav } from "@/components/site/Nav";
@@ -35,8 +36,11 @@ function Index() {
       <Nav />
       <main className="relative z-10">
         <Hero />
+        <Abstract />
         <Problem />
+        <Objectives />
         <Solution />
+        <AmbulanceIntegration />
         <LaunchSequence />
         <TrafficClearance />
         <Architecture />
@@ -46,6 +50,7 @@ function Index() {
         <FutureVision />
         <Stats />
         <Closing />
+        <Conclusion />
         <Contact />
       </main>
       <Footer />
