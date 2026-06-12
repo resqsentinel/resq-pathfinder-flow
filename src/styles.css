@@ -63,38 +63,37 @@
 
 :root {
   --radius: 0.75rem;
-  /* ResQ Sentinel — crimson emergency command theme */
-  --background: oklch(0.05 0.005 20);
+  /* ResQ Sentinel — futuristic dark theme */
+  --background: oklch(0.13 0.04 260);
   --foreground: oklch(0.97 0.01 240);
-  --card: oklch(0.1 0.01 20 / 70%);
+  --card: oklch(0.18 0.04 260 / 60%);
   --card-foreground: oklch(0.97 0.01 240);
-  --popover: oklch(0.08 0.01 20);
+  --popover: oklch(0.16 0.04 260);
   --popover-foreground: oklch(0.97 0.01 240);
-  --primary: oklch(0.62 0.27 25);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.12 0.01 20);
+  --primary: oklch(0.72 0.18 230);
+  --primary-foreground: oklch(0.1 0.03 260);
+  --secondary: oklch(0.22 0.05 260);
   --secondary-foreground: oklch(0.97 0.01 240);
-  --muted: oklch(0.12 0.01 20);
-  --muted-foreground: oklch(0.7 0.02 20);
-  --accent: oklch(0.75 0.2 60);
-  --accent-foreground: oklch(0.05 0 0);
+  --muted: oklch(0.2 0.04 260);
+  --muted-foreground: oklch(0.7 0.04 240);
+  --accent: oklch(0.78 0.17 200);
+  --accent-foreground: oklch(0.1 0.03 260);
   --destructive: oklch(0.65 0.24 25);
   --destructive-foreground: oklch(0.97 0.01 240);
-  --border: oklch(0.62 0.27 25 / 25%);
-  --input: oklch(0.15 0.01 20);
-  --ring: oklch(0.62 0.27 25);
+  --border: oklch(0.72 0.18 230 / 25%);
+  --input: oklch(0.25 0.04 260);
+  --ring: oklch(0.72 0.18 230);
 
-  /* Crimson emergency palette: #FF1744 / #FF9100 / #050505 */
-  --neon-blue: oklch(0.62 0.27 25);    /* crimson #FF1744 */
-  --neon-cyan: oklch(0.75 0.2 60);     /* amber  #FF9100 */
-  --deep-navy: oklch(0.05 0 0);        /* #050505 */
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.35 0.2 25 / 35%), transparent 60%), linear-gradient(180deg, #050505, #0a0303);
+  --neon-blue: oklch(0.72 0.2 235);
+  --neon-cyan: oklch(0.82 0.18 200);
+  --deep-navy: oklch(0.1 0.04 265);
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.25 0.1 240 / 60%), transparent 60%), linear-gradient(180deg, oklch(0.1 0.04 265), oklch(0.13 0.04 260));
   --gradient-primary: linear-gradient(135deg, var(--neon-blue), var(--neon-cyan));
-  --gradient-text: linear-gradient(135deg, #FFFFFF, #FF1744);
-  --shadow-neon: 0 0 30px oklch(0.62 0.27 25 / 55%), 0 0 60px oklch(0.62 0.27 25 / 28%);
-  --shadow-glass: 0 8px 32px oklch(0.02 0 0 / 80%);
-  --glass-bg: linear-gradient(135deg, oklch(1 0 0 / 4%), oklch(1 0 0 / 1%));
-  --glass-border: oklch(0.62 0.27 25 / 30%);
+  --gradient-text: linear-gradient(135deg, oklch(0.95 0.05 220), oklch(0.78 0.18 220));
+  --shadow-neon: 0 0 30px oklch(0.72 0.2 235 / 50%), 0 0 60px oklch(0.72 0.2 235 / 25%);
+  --shadow-glass: 0 8px 32px oklch(0.05 0.02 260 / 60%);
+  --glass-bg: linear-gradient(135deg, oklch(1 0 0 / 6%), oklch(1 0 0 / 2%));
+  --glass-border: oklch(0.72 0.18 230 / 30%);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -161,7 +160,7 @@
 
   html { scroll-behavior: smooth; }
 
-  ::selection { background: oklch(0.85 0.24 152 / 40%); color: white; }
+  ::selection { background: oklch(0.72 0.2 235 / 40%); color: white; }
 }
 
 @layer utilities {
@@ -193,7 +192,7 @@
     mask-composite: exclude;
     pointer-events: none;
   }
-  .neon-text { text-shadow: 0 0 12px oklch(0.85 0.24 152 / 70%), 0 0 30px oklch(0.85 0.24 152 / 35%); }
+  .neon-text { text-shadow: 0 0 12px oklch(0.72 0.2 235 / 70%), 0 0 30px oklch(0.72 0.2 235 / 35%); }
   .neon-glow { box-shadow: var(--shadow-neon); }
 
   @keyframes border-flow {
@@ -216,8 +215,8 @@
   .animate-spin-slow { animation: spin-slow 18s linear infinite; }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px oklch(0.85 0.24 152 / 40%); }
-    50% { box-shadow: 0 0 50px oklch(0.85 0.24 152 / 80%); }
+    0%, 100% { box-shadow: 0 0 20px oklch(0.72 0.2 235 / 40%); }
+    50% { box-shadow: 0 0 50px oklch(0.72 0.2 235 / 80%); }
   }
   .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 
@@ -234,8 +233,8 @@
   }
   .grid-bg {
     background-image:
-      linear-gradient(oklch(0.85 0.24 152 / 8%) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.85 0.24 152 / 8%) 1px, transparent 1px);
+      linear-gradient(oklch(0.72 0.2 235 / 8%) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.72 0.2 235 / 8%) 1px, transparent 1px);
     background-size: 50px 50px;
     animation: grid-move 20s linear infinite;
   }
@@ -279,20 +278,4 @@
     50% { transform: translateX(18px); }
   }
   .yield-right { animation: yield-right 2.6s ease-in-out infinite; }
-
-  @keyframes radar-sweep {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes ping-dot {
-    0% { transform: scale(0.6); opacity: 1; box-shadow: 0 0 0 0 #FF9100AA; }
-    80%, 100% { transform: scale(1.6); opacity: 0; box-shadow: 0 0 0 14px transparent; }
-  }
-
-  @keyframes traffic-flow {
-    0% { transform: translateX(-100%); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateX(100%); opacity: 0; }
-  }
 }

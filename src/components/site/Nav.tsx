@@ -28,7 +28,7 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4">
-        <div className={`glass flex items-center justify-between px-4 py-3 transition-all ${scrolled ? "shadow-[0_8px_40px_rgba(0,255,136,0.15)]" : ""}`}>
+        <div className={`glass flex items-center justify-between px-4 py-3 transition-all ${scrolled ? "shadow-[0_8px_40px_rgba(0,140,255,0.15)]" : ""}`}>
           <a href="#home" className="flex items-center gap-2">
             <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[10px] font-black text-[var(--deep-navy)]">
               RQ
