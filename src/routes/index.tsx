@@ -765,3 +765,198 @@ function Closing() {
   );
 }
 
+/* ---------- ABSTRACT ---------- */
+
+function Abstract() {
+  return (
+    <section id="abstract" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4">
+        <SectionHeader
+          eyebrow="Section 01 · Abstract"
+          title={<>The <span className="text-gradient">Mission Brief</span></>}
+          sub="An overview of why ResQ Sentinel exists and the problem it is engineered to solve."
+        />
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 reveal">
+            <Card className="h-full">
+              <IconChip Icon={FileText} />
+              <h3 className="text-2xl font-bold mb-3">Autonomous Aerial Emergency Support</h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                Traffic congestion is one of the primary causes of delayed emergency response in urban areas.
+                Even minimal delays can significantly impact patient survival rates and disaster response outcomes.
+              </p>
+              <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                <span className="text-foreground font-semibold">ResQ Sentinel</span> is an autonomous emergency
+                traffic clearance drone that launches roughly five minutes ahead of an ambulance — using GPS-based
+                navigation, autonomous flight control and real-time communication systems to clear the corridor
+                with high-intensity lights, sirens and voice alerts before the ambulance arrives.
+              </p>
+            </Card>
+          </div>
+          <div className="reveal grid gap-4">
+            {[
+              { k: "Lead Time", v: "≈ 5 min", l: "Ahead of ambulance" },
+              { k: "Mode", v: "Autonomous", l: "GPS waypoint flight" },
+              { k: "Alerts", v: "Tri-Modal", l: "Siren · LED · Voice" },
+            ].map((s) => (
+              <div key={s.k} className="glass glow-border p-5">
+                <div className="text-[10px] uppercase tracking-widest text-[var(--neon-cyan)]">{s.k}</div>
+                <div className="text-2xl font-black text-gradient mt-1">{s.v}</div>
+                <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- OBJECTIVES ---------- */
+
+function Objectives() {
+  const items = [
+    { Icon: Bot, title: "Stable Hexacopter Platform", d: "Design and develop a robust six-rotor airframe tuned for urban flight." },
+    { Icon: Satellite, title: "GPS Autonomous Navigation", d: "Implement waypoint-driven autonomous routing along the ambulance corridor." },
+    { Icon: Megaphone, title: "Early Traffic Warning", d: "Deliver an effective multi-modal alert system to clear traffic in advance." },
+    { Icon: Timer, title: "Reduce Response Time", d: "Cut critical minutes off every emergency call in dense urban areas." },
+    { Icon: Building2, title: "Smart City Demonstration", d: "Showcase a connected, scalable solution aligned with smart city goals." },
+    { Icon: ShieldCheck, title: "Operate Safely at Scale", d: "Layered fail-safes ensure reliable, repeatable urban operations." },
+  ];
+  return (
+    <section id="objectives" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4">
+        <SectionHeader
+          eyebrow="Section 02 · Objectives"
+          title={<>Engineering <span className="text-gradient">Objectives</span></>}
+          sub="The measurable goals driving every design decision behind ResQ Sentinel."
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {items.map(({ Icon, title, d }, i) => (
+            <div key={title} className="reveal" style={{ animationDelay: `${i * 70}ms` }}>
+              <Card className="h-full">
+                <div className="flex items-start gap-4">
+                  <div className="shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--neon-blue)]/30 to-[var(--neon-cyan)]/10 border border-[var(--neon-blue)]/40 text-[var(--neon-cyan)]">
+                    <Target className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] uppercase tracking-widest text-[var(--neon-cyan)] mb-1">Goal {String(i + 1).padStart(2, "0")}</div>
+                    <h3 className="text-base font-bold mb-1 flex items-center gap-2">
+                      <Icon className="h-4 w-4 text-[var(--neon-cyan)]" />
+                      {title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{d}</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- AMBULANCE INTEGRATION ---------- */
+
+function AmbulanceIntegration() {
+  const channels = [
+    { Icon: ListChecks, title: "Pre-Programmed Mission", d: "Hospitals and dispatch upload pre-validated mission plans for common corridors." },
+    { Icon: Radio, title: "Real-Time Transmission", d: "Live routes are streamed from a mobile or control system the moment dispatch occurs." },
+    { Icon: Brain, title: "Shortest Route Prediction", d: "ML model predicts the fastest path the ambulance is likely to take and dispatches accordingly." },
+  ];
+  return (
+    <section id="integration" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4">
+        <SectionHeader
+          eyebrow="Section 05 · Integration"
+          title={<>Ambulance <span className="text-gradient">Integration System</span></>}
+          sub="Three synchronized channels keep the drone aligned with the ambulance from dispatch to delivery."
+        />
+        <div className="grid lg:grid-cols-3 gap-5">
+          {channels.map(({ Icon, title, d }, i) => (
+            <div key={title} className="reveal" style={{ animationDelay: `${i * 90}ms` }}>
+              <Card className="h-full">
+                <IconChip Icon={Icon} />
+                <div className="text-[10px] uppercase tracking-widest text-[var(--neon-cyan)] mb-1">Channel {String(i + 1).padStart(2, "0")}</div>
+                <h3 className="text-lg font-bold mb-2">{title}</h3>
+                <p className="text-sm text-muted-foreground">{d}</p>
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 glass glow-border p-6 md:p-8 reveal">
+          <div className="grid md:grid-cols-5 gap-4 items-center">
+            {[
+              { Icon: Ambulance, label: "Ambulance" },
+              { Icon: Waypoints, label: "Route Sync" },
+              { Icon: Bot, label: "ResQ Sentinel" },
+              { Icon: Megaphone, label: "Alerts" },
+              { Icon: Flag, label: "Corridor Clear" },
+            ].map(({ Icon, label }, i, arr) => (
+              <div key={label} className="flex items-center justify-center gap-3">
+                <div className="flex flex-col items-center text-center">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--neon-blue)]/30 to-[var(--neon-cyan)]/10 border border-[var(--neon-blue)]/40 text-[var(--neon-cyan)]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="mt-2 text-[10px] uppercase tracking-widest text-muted-foreground">{label}</div>
+                </div>
+                {i < arr.length - 1 && (
+                  <ArrowRight className="hidden md:block h-4 w-4 text-[var(--neon-cyan)]" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- CONCLUSION ---------- */
+
+function Conclusion() {
+  return (
+    <section id="conclusion" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-4">
+        <SectionHeader
+          eyebrow="Conclusion"
+          title={<>A <span className="text-gradient">Practical & Scalable</span> Solution</>}
+        />
+        <div className="grid gap-6">
+          <div className="reveal">
+            <Card>
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed">
+                The <span className="text-gradient font-bold">ResQ Sentinel</span> system demonstrates a practical and scalable
+                solution to one of the most critical urban challenges — delayed emergency response due to traffic congestion.
+              </p>
+              <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+                By leveraging autonomous drone technology, GPS navigation and multi-modal alert systems, this project
+                provides an efficient method to improve response times and potentially save lives. It also lays the
+                foundation for future smart city applications, where drones can assist in traffic management, disaster
+                response and public safety operations.
+              </p>
+            </Card>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-4 reveal">
+            {[
+              { Icon: Heart, t: "Lives Saved", d: "Faster response, higher survival." },
+              { Icon: Building2, t: "Smart City Ready", d: "Connected urban infrastructure." },
+              { Icon: Sparkles, t: "Scalable Future", d: "Dock-based fleet deployment." },
+            ].map(({ Icon, t, d }) => (
+              <div key={t} className="glass p-5 text-center">
+                <div className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--neon-blue)]/30 to-[var(--neon-cyan)]/10 border border-[var(--neon-blue)]/40 text-[var(--neon-cyan)]">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="text-sm font-bold">{t}</div>
+                <div className="text-xs text-muted-foreground mt-1">{d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
