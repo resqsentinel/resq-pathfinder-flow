@@ -80,11 +80,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "ResQ Sentinel — Autonomous Emergency Drone System" },
       { name: "description", content: "ResQ Sentinel clears traffic ahead of ambulances with autonomous drones — reducing emergency response times when every second counts." },
       { name: "author", content: "ResQ Sentinel" },
-      { property: "og:title", content: "ResQ Sentinel — Clearing the Path Before Every Second Counts" },
-      { property: "og:description", content: "Autonomous Emergency Traffic Clearance Drone System." },
+      { property: "og:title", content: "ResQ Sentinel — Autonomous Emergency Drone System" },
+      { property: "og:description", content: "ResQ Sentinel clears traffic ahead of ambulances with autonomous drones — reducing emergency response times when every second counts." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "ResQ Sentinel — Autonomous Emergency Drone System" },
+      { name: "twitter:description", content: "ResQ Sentinel clears traffic ahead of ambulances with autonomous drones — reducing emergency response times when every second counts." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2700178e-c6ea-4e81-9918-45ee58d0aa05/id-preview-5cd4adb4--d7fe13e5-302d-402f-939d-9859d0337a33.lovable.app-1781284078492.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2700178e-c6ea-4e81-9918-45ee58d0aa05/id-preview-5cd4adb4--d7fe13e5-302d-402f-939d-9859d0337a33.lovable.app-1781284078492.png" },
     ],
     links: [
       {
