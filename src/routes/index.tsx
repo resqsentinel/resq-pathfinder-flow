@@ -9,6 +9,7 @@ import {
   FileText, Target, Ambulance, Flag, Brain, Waypoints,
 } from "lucide-react";
 import smartCity from "@/assets/smart-city.jpg";
+import droneAsset from "@/assets/resq-drone.jpg.asset.json";
 import { Nav } from "@/components/site/Nav";
 import { NeonFrame, ParticleField, useScrollReveal } from "@/components/site/NeonFrame";
 
