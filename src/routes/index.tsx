@@ -9,7 +9,7 @@ import {
   FileText, Target, Ambulance, Flag, Brain, Waypoints,
 } from "lucide-react";
 import smartCity from "@/assets/smart-city.jpg";
-import droneAsset from "@/assets/resq-drone.jpg.asset.json";
+import droneGraphic from "@/assets/resq-drone-graphic.png";
 import { Nav } from "@/components/site/Nav";
 import { NeonFrame, ParticleField, useScrollReveal } from "@/components/site/NeonFrame";
 
@@ -154,10 +154,12 @@ function Hero() {
             {/* drone image */}
             <div className="absolute inset-16 flex items-center justify-center animate-float">
               <img
-                src={droneAsset.url}
+                src={droneGraphic}
                 alt="ResQ Sentinel autonomous hexacopter drone"
                 className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(80,180,255,0.45)]"
                 loading="eager"
+                width={1024}
+                height={1024}
               />
             </div>
             {/* HUD corners */}
