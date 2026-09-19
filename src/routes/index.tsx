@@ -11,7 +11,7 @@ import {
 import smartCity from "@/assets/smart-city.jpg";
 import droneGraphic from "@/assets/resq-drone-graphic.png";
 import { Nav } from "@/components/site/Nav";
-import { NeonFrame, ParticleField, useScrollReveal } from "@/components/site/NeonFrame";
+import { NeonFrame, useScrollReveal } from "@/components/site/NeonFrame";
 
 
 export const Route = createFileRoute("/")({
@@ -32,7 +32,6 @@ function Index() {
   useScrollReveal();
   return (
     <div className="relative min-h-screen text-foreground">
-      <ParticleField />
       <NeonFrame />
       <Nav />
       <main className="relative z-10">
@@ -43,7 +42,6 @@ function Index() {
         <Solution />
         <AmbulanceIntegration />
         <LaunchSequence />
-        <TrafficClearance />
         <Architecture />
         <Features />
         <Safety />
@@ -92,90 +90,50 @@ function IconChip({ Icon }: { Icon: React.ComponentType<{ className?: string }> 
 
 function Hero() {
   return (
-    <section id="home" className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden />
-      <div className="absolute top-1/2 -left-40 h-[500px] w-[500px] rounded-full bg-[var(--neon-blue)]/20 blur-[120px]" aria-hidden />
-      <div className="absolute top-1/3 -right-40 h-[500px] w-[500px] rounded-full bg-[var(--neon-cyan)]/20 blur-[120px]" aria-hidden />
+    <section id="home" className="hero-cinematic relative flex min-h-[94vh] items-center overflow-hidden pb-20 pt-28 md:pb-24 md:pt-32">
+      <div className="hero-horizon absolute inset-0" aria-hidden />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" aria-hidden />
 
-      <div className="relative mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="reveal">
-          <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-muted-foreground mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-400 animate-pulse" />
-            Emergency Response · Autonomous Aerial
+      <div className="relative mx-auto w-full max-w-7xl px-5 text-center md:px-8">
+        <div className="reveal mx-auto max-w-6xl">
+          <div className="mb-7 inline-flex items-center gap-3 border border-primary/20 bg-primary/5 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.32em] text-primary">
+            <span className="h-1.5 w-1.5 bg-emergency animate-pulse" />
+            Autonomous Emergency Response
           </div>
-          <p className="text-xs md:text-sm uppercase tracking-[0.4em] text-[var(--neon-cyan)] mb-4">Introducing</p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
-            <span className="text-gradient neon-text">ResQ</span>{" "}
-            <span className="text-gradient neon-text">Sentinel</span>
+          <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.38em] text-muted-foreground md:text-xs">
+            Introducing ResQ Sentinel
+          </p>
+          <h1 className="font-display text-5xl font-light uppercase leading-[0.88] md:text-8xl lg:text-9xl">
+            Clear the path.
+            <span className="mt-2 block font-bold text-gradient">Before every second counts.</span>
           </h1>
-          <p className="mt-6 text-lg md:text-2xl text-foreground/90 max-w-xl font-light">
-            The World's First Autonomous Emergency Traffic Clearance Drone.
+          <p className="mx-auto mt-7 max-w-2xl text-base font-light leading-relaxed text-muted-foreground md:text-lg">
+            Autonomous aerial intelligence that moves ahead of ambulances, warns traffic early,
+            and protects the minutes that decide outcomes.
           </p>
-          <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-xl">
-            Aerial intelligence designed to save critical minutes during emergency response
-            by clearing traffic ahead of ambulances and rescue vehicles.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#solution"
-              className="group inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] shadow-[0_10px_40px_-10px_rgba(80,180,255,0.7)] hover:shadow-[0_15px_50px_-10px_rgba(80,180,255,1)] transition-all">
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-5 sm:flex-row">
+            <a href="#solution" className="group inline-flex min-w-52 items-center justify-center gap-2 bg-foreground px-7 py-4 text-[11px] font-bold uppercase tracking-[0.18em] text-background transition-transform hover:-translate-y-0.5">
               <Play className="h-4 w-4" /> Watch Mission
             </a>
-            <a href="#features"
-              className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-semibold uppercase tracking-wider glass glow-border hover:bg-white/5 transition">
-              Explore Technology
-              <ArrowRight className="h-4 w-4" />
+            <a href="#features" className="inline-flex min-w-52 items-center justify-center gap-2 border border-border px-7 py-4 text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary/60 hover:text-foreground">
+              Explore Technology <ArrowRight className="h-4 w-4" />
             </a>
-          </div>
-
-          {/* HUD micro stats */}
-          <div className="mt-10 grid grid-cols-3 gap-3 max-w-md">
-            {[
-              ["< 30s", "Launch"],
-              ["2 KM", "Range"],
-              ["24/7", "Standby"],
-            ].map(([v, l]) => (
-              <div key={l} className="glass p-3 text-center">
-                <div className="text-xl font-black text-gradient">{v}</div>
-                <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{l}</div>
-              </div>
-            ))}
           </div>
         </div>
 
-        {/* Hero visual */}
-        <div className="relative reveal">
-          <div className="relative aspect-square max-w-[620px] mx-auto">
-            {/* rotating rings */}
-            <div className="absolute inset-0 rounded-full border border-[var(--neon-blue)]/30 animate-spin-slow" />
-            <div className="absolute inset-6 rounded-full border border-dashed border-[var(--neon-cyan)]/30 animate-spin-slow" style={{ animationDirection: "reverse", animationDuration: "26s" }} />
-            <div className="absolute inset-12 rounded-full border border-[var(--neon-blue)]/20" />
-            {/* glow */}
-            <div className="absolute inset-10 rounded-full bg-[var(--neon-blue)]/15 blur-3xl animate-pulse-glow" />
-            {/* drone image */}
-            <div className="absolute inset-16 flex items-center justify-center animate-float">
-              <img
-                src={droneGraphic}
-                alt="ResQ Sentinel autonomous hexacopter drone"
-                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(80,180,255,0.45)]"
-                loading="eager"
-                width={1024}
-                height={1024}
-              />
+        <div className="relative mx-auto mt-8 h-56 max-w-3xl sm:h-64 md:mt-4 md:h-72">
+          <div className="absolute left-1/2 top-1/2 h-32 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" aria-hidden />
+          <img src={droneGraphic} alt="ResQ Sentinel autonomous six-rotor drone" className="relative mx-auto h-full w-full object-contain drop-shadow-[0_22px_36px_var(--drone-shadow)] animate-float" loading="eager" width={1024} height={1024} />
+        </div>
+
+        <div className="mx-auto grid max-w-2xl grid-cols-3 border-y border-border/70 py-4">
+          {[["< 30s", "Launch"], ["2 KM", "Range"], ["24/7", "Standby"]].map(([value, label]) => (
+            <div key={label} className="border-r border-border/70 px-2 last:border-r-0">
+              <div className="font-display text-lg font-bold text-foreground md:text-xl">{value}</div>
+              <div className="mt-1 text-[8px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-[9px]">{label}</div>
             </div>
-            {/* HUD corners */}
-            {["top-0 left-0", "top-0 right-0 rotate-90", "bottom-0 right-0 rotate-180", "bottom-0 left-0 -rotate-90"].map((p) => (
-              <div key={p} className={`absolute ${p} h-8 w-8 border-t-2 border-l-2 border-[var(--neon-cyan)]`} />
-            ))}
-            {/* floating labels */}
-            <div className="hidden md:block absolute -left-6 top-1/4 glass px-3 py-2 text-[10px] uppercase tracking-widest animate-float" style={{ animationDelay: "1s" }}>
-              <div className="text-muted-foreground">Telemetry</div>
-              <div className="text-gradient font-bold">LINKED</div>
-            </div>
-            <div className="hidden md:block absolute -right-4 bottom-1/4 glass px-3 py-2 text-[10px] uppercase tracking-widest animate-float" style={{ animationDelay: "2s" }}>
-              <div className="text-muted-foreground">Status</div>
-              <div className="text-gradient font-bold">ON MISSION</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -667,81 +625,6 @@ function LaunchSequence() {
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] uppercase tracking-widest">
             {[["Battery", "98%"], ["Wind", "4 m/s"], ["Signal", "−62 dBm"], ["Heading", "N 042°"]].map(([k, v]) => (
               <div key={k} className="flex items-center justify-between rounded-md bg-[var(--input)]/40 px-3 py-2">
-                <span className="text-muted-foreground">{k}</span>
-                <span className="text-gradient font-bold">{v}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- TRAFFIC CLEARANCE ---------- */
-
-function TrafficClearance() {
-  return (
-    <section className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionHeader
-          eyebrow="Section 04 · Live Operation"
-          title={<>Traffic <span className="text-gradient">Clearance Operation</span></>}
-          sub="The sentinel flies the corridor ahead of the ambulance, broadcasting sirens, lights and signal sync — the road parts before arrival."
-        />
-        <div className="relative glass glow-border p-6 md:p-10 reveal overflow-hidden">
-          <div className="relative h-72 md:h-96 rounded-lg overflow-hidden bg-gradient-to-b from-[var(--deep-navy)] to-background">
-            {/* perspective road */}
-            <div className="absolute inset-0" style={{ perspective: "800px" }}>
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 w-[160%] h-[120%] origin-top"
-                style={{ transform: "translate(-50%, -10%) rotateX(62deg)" }}>
-                <div className="relative w-full h-full bg-[oklch(0.18_0.04_260)] border-t border-[var(--neon-blue)]/40">
-                  {/* lane dashes */}
-                  <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-1 dashed-flow" />
-                  <div className="absolute inset-y-0 left-1/3 w-px bg-[var(--neon-blue)]/30" />
-                  <div className="absolute inset-y-0 right-1/3 w-px bg-[var(--neon-blue)]/30" />
-                </div>
-              </div>
-            </div>
-            {/* sky glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 h-40 w-[80%] bg-[var(--neon-blue)]/20 blur-3xl" />
-            {/* yielding cars */}
-            <div className="absolute top-[58%] left-[18%] h-3 w-6 rounded-sm bg-foreground/40 yield-left" />
-            <div className="absolute top-[64%] right-[18%] h-3 w-6 rounded-sm bg-foreground/40 yield-right" />
-            <div className="absolute top-[70%] left-[26%] h-3 w-7 rounded-sm bg-foreground/30 yield-left" style={{ animationDelay: "0.5s" }} />
-            <div className="absolute top-[74%] right-[26%] h-3 w-7 rounded-sm bg-foreground/30 yield-right" style={{ animationDelay: "0.7s" }} />
-            {/* drone */}
-            <div className="absolute top-[24%] left-1/2 -translate-x-1/2 drone-fly">
-              <div className="relative">
-                <div className="h-2 w-10 rounded-full bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-blue)] shadow-[0_0_30px_rgba(80,180,255,0.9)]" />
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-3 w-3 rounded-full bg-red-500 animate-pulse shadow-[0_0_20px_rgba(255,60,60,0.9)]" />
-              </div>
-              <div className="mt-1 mx-auto h-24 w-1 bg-gradient-to-b from-[var(--neon-cyan)]/70 to-transparent" />
-            </div>
-            {/* ambulance */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 ambulance-rise">
-              <div className="relative h-8 w-14 rounded bg-white/90 border border-[var(--neon-blue)]/60 shadow-[0_0_30px_rgba(80,180,255,0.6)]">
-                <div className="absolute -top-1 left-1 h-1.5 w-3 rounded-sm bg-red-500 animate-pulse" />
-                <div className="absolute -top-1 right-1 h-1.5 w-3 rounded-sm bg-blue-500 animate-pulse" style={{ animationDelay: "0.2s" }} />
-                <div className="absolute inset-0 flex items-center justify-center text-[8px] font-black text-red-600">+</div>
-              </div>
-            </div>
-            {/* HUD overlays */}
-            <div className="absolute top-3 left-3 glass px-2 py-1 text-[9px] uppercase tracking-widest">
-              <span className="text-muted-foreground">CORRIDOR · </span><span className="text-gradient font-bold">CLEAR</span>
-            </div>
-            <div className="absolute top-3 right-3 glass px-2 py-1 text-[9px] uppercase tracking-widest">
-              <span className="text-muted-foreground">ETA · </span><span className="text-gradient font-bold">02:14</span>
-            </div>
-          </div>
-          <div className="mt-6 grid sm:grid-cols-4 gap-3 text-xs">
-            {[
-              ["Sirens", "Active"],
-              ["LED Beacon", "Strobe"],
-              ["Signal Sync", "On"],
-              ["Lanes Yielding", "100%"],
-            ].map(([k, v]) => (
-              <div key={k} className="flex items-center justify-between rounded-md bg-[var(--input)]/40 px-3 py-2 uppercase tracking-widest text-[10px]">
                 <span className="text-muted-foreground">{k}</span>
                 <span className="text-gradient font-bold">{v}</span>
               </div>

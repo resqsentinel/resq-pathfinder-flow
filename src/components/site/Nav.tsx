@@ -1,63 +1,59 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  ["Home", "#home"],
-  ["Abstract", "#abstract"],
-  ["Problem", "#problem"],
-  ["Objectives", "#objectives"],
-  ["Solution", "#solution"],
-  ["Integration", "#integration"],
-  ["Architecture", "#architecture"],
-  ["Features", "#features"],
-  ["Safety", "#safety"],
+  ["Mission", "#problem"],
+  ["System", "#architecture"],
+  ["Technology", "#features"],
   ["Future", "#future"],
-  ["Conclusion", "#conclusion"],
-  ["Contact", "#contact"],
 ] as const;
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
-      }`}
-    >
-      <div className="mx-auto max-w-7xl px-4">
-        <div className={`glass flex items-center justify-between px-4 py-3 transition-all ${scrolled ? "shadow-[0_8px_40px_rgba(0,140,255,0.15)]" : ""}`}>
-          <a href="#home" className="flex items-center gap-2">
-            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[10px] font-black text-[var(--deep-navy)]">
-              RQ
-              <span className="absolute inset-0 rounded-md animate-pulse-glow" />
-            </span>
-            <span className="font-black tracking-[0.18em] text-sm">RESQ <span className="text-gradient">SENTINEL</span></span>
-          </a>
-          <nav className="hidden lg:flex items-center gap-0.5">
-            {links.map(([label, href]) => (
-              <a
-                key={href}
-                href={href}
-                className="px-2 py-1.5 text-[11px] uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors relative group"
-              >
-                {label}
-                <span className="absolute left-2 right-2 -bottom-0.5 h-px scale-x-0 origin-left bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] transition-transform group-hover:scale-x-100" />
-              </a>
-            ))}
-          </nav>
-          <a
-            href="#contact"
-            className="inline-flex items-center rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-gradient-to-r from-[var(--neon-blue)] to-[var(--neon-cyan)] text-[var(--deep-navy)] hover:opacity-90 transition"
-          >
-            Launch Demo
-          </a>
-        </div>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 md:px-8">
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between border-b px-1 transition-all duration-500 ${
+          scrolled
+            ? "border-border bg-background/85 py-3 backdrop-blur-xl"
+            : "border-transparent bg-transparent py-6"
+        }`}
+      >
+        <a href="#home" className="flex items-center gap-3" aria-label="ResQ Sentinel home">
+          <span className="relative grid h-7 w-7 place-items-center border border-primary text-[8px] font-bold text-primary">
+            RQ
+            <span className="absolute inset-1 border border-primary/30" />
+          </span>
+          <span className="font-display text-sm font-bold uppercase tracking-[0.16em] md:text-base">
+            ResQ <span className="font-light text-muted-foreground">Sentinel</span>
+          </span>
+        </a>
+
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary navigation">
+          {links.map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-primary"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <a
+          href="#contact"
+          className="border border-primary/40 bg-primary/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground md:px-5"
+        >
+          Launch Demo
+        </a>
       </div>
     </header>
   );
