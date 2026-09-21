@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 /** Continuous neon LED strip running around the viewport edges. */
 export function NeonFrame() {
@@ -97,4 +97,59 @@ export function useScrollReveal() {
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
+}
+
+/** Soft blue ambient glow that gently trails the cursor (desktop only). */
+export function CursorGlow() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    const el = ref.current;
+    if (!el) return;
+    let tx = window.innerWidth / 2;
+    let ty = window.innerHeight / 3;
+    let x = tx;
+    let y = ty;
+    let raf = 0;
+    const onMove = (e: MouseEvent) => {
+      tx = e.clientX;
+      ty = e.clientY;
+      el.style.opacity = "1";
+    };
+    const loop = () => {
+      x += (tx - x) * 0.07;
+      y += (ty - y) * 0.07;
+      el.style.transform = `translate(${x - 260}px, ${y - 260}px)`;
+      raf = requestAnimationFrame(loop);
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    loop();
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      aria-hidden
+      className="pointer-events-none fixed left-0 top-0 z-[5] h-[520px] w-[520px] rounded-full opacity-0 transition-opacity duration-700"
+      style={{
+        background: "radial-gradient(circle, oklch(0.78 0.16 219 / 9%), transparent 65%)",
+        filter: "blur(24px)",
+      }}
+    />
+  );
+}
+
+/** Faint CRT scanlines with a slow travelling scan beam. */
+export function Scanlines() {
+  return (
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-[55] overflow-hidden">
+      <div className="scanlines absolute inset-0 opacity-70" />
+      <div className="scan-beam absolute inset-x-0" />
+    </div>
+  );
 }

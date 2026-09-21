@@ -5,13 +5,13 @@ import {
   Cpu, Compass, Satellite, Radio, Bot, Siren, Lightbulb, Route as RouteIcon, Anchor, ShieldCheck,
   ShieldAlert, BatteryCharging, MapPinned, LandPlot, Home as HomeIcon, ListChecks, Lock,
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
-  MessageSquare, Send, Play, CheckCircle2, Crosshair, Upload, Power,
+  MessageSquare, Send, Play, CheckCircle2, Crosshair, Upload, Power, Instagram,
   FileText, Target, Ambulance, Flag, Brain, Waypoints,
 } from "lucide-react";
 import smartCity from "@/assets/smart-city.jpg";
 import droneGraphic from "@/assets/resq-drone-graphic.png";
 import { Nav } from "@/components/site/Nav";
-import { NeonFrame, useScrollReveal } from "@/components/site/NeonFrame";
+import { NeonFrame, useScrollReveal, CursorGlow, Scanlines } from "@/components/site/NeonFrame";
 
 
 export const Route = createFileRoute("/")({
@@ -35,6 +35,8 @@ function Index() {
   return (
     <div className="relative min-h-screen text-foreground">
       <NeonFrame />
+      <CursorGlow />
+      <Scanlines />
       <Nav />
       <main className="relative z-10">
         <Hero />
@@ -75,7 +77,7 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: React.
 
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`glass glow-border p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(80,180,255,0.35)] ${className}`}>
+    <div className={`glass glow-border sheen p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(80,180,255,0.35)] ${className}`}>
       {children}
     </div>
   );
@@ -94,6 +96,8 @@ function Hero() {
   return (
     <section id="home" className="hero-cinematic relative flex min-h-[94vh] items-center overflow-hidden pb-20 pt-28 md:pb-24 md:pt-32">
       <div className="hero-horizon absolute inset-0" aria-hidden />
+      <div className="aurora absolute -left-32 top-1/4 h-96 w-96 bg-[var(--neon-blue)]/10" aria-hidden />
+      <div className="aurora absolute -right-24 top-10 h-80 w-80 bg-[var(--neon-cyan)]/10" aria-hidden style={{ animationDelay: "-6s" }} />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" aria-hidden />
 
       <div className="relative mx-auto w-full max-w-7xl px-5 text-center md:px-8">
@@ -576,10 +580,21 @@ function Footer() {
   return (
     <footer className="relative z-10 mt-10 border-t border-[var(--neon-blue)]/20">
       <div className="mx-auto max-w-7xl px-4 py-12 text-center">
-        <div className="text-3xl md:text-4xl font-black tracking-tight text-gradient neon-text">RESQ SENTINEL</div>
+        <div className="text-3xl md:text-4xl font-black tracking-tight text-shimmer neon-text">RESQ SENTINEL</div>
         <p className="mt-3 text-sm text-foreground/90">Clearing the Path Before Every Second Counts.</p>
         <p className="mt-1 text-xs text-muted-foreground">Autonomous Emergency Traffic Clearance Drone System</p>
         <div className="mt-6 h-px max-w-md mx-auto border-flow" />
+        <div className="mt-6 flex items-center justify-center gap-4">
+          <a
+            href="https://www.instagram.com/resqsentinel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ResQ Sentinel on Instagram"
+            className="group inline-flex h-11 w-11 items-center justify-center rounded-lg border border-[var(--neon-blue)]/40 bg-[var(--neon-blue)]/5 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--neon-cyan)] hover:text-[var(--neon-cyan)] hover:shadow-[0_0_25px_-5px_rgba(80,180,255,0.7)]"
+          >
+            <Instagram className="h-5 w-5" />
+          </a>
+        </div>
         <p className="mt-6 text-[11px] uppercase tracking-widest text-muted-foreground">
           © {new Date().getFullYear()} ResQ Sentinel · All systems nominal
         </p>
