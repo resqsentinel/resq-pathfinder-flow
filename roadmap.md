@@ -1,0 +1,1 @@
+- [ ] Keep the current layout unchanged while adding landing-page effects and making the existing Instagram link visible earlier.
