@@ -5,13 +5,13 @@ import {
   Cpu, Compass, Satellite, Radio, Bot, Siren, Lightbulb, Route as RouteIcon, Anchor, ShieldCheck,
   ShieldAlert, BatteryCharging, MapPinned, LandPlot, Home as HomeIcon, ListChecks, Lock,
   Zap, Network, Building2, Radar, Eye, PlaneTakeoff, Sparkles, ArrowRight, Mail, User,
-  MessageSquare, Send, Play, CheckCircle2, Crosshair, Upload, Power,
+  MessageSquare, Send, Play, CheckCircle2, Crosshair, Upload, Power, Instagram,
   FileText, Target, Ambulance, Flag, Brain, Waypoints,
 } from "lucide-react";
 import smartCity from "@/assets/smart-city.jpg";
 import droneGraphic from "@/assets/resq-drone-graphic.png";
 import { Nav } from "@/components/site/Nav";
-import { NeonFrame, useScrollReveal } from "@/components/site/NeonFrame";
+import { NeonFrame, useScrollReveal, CursorGlow, Scanlines } from "@/components/site/NeonFrame";
 
 
 export const Route = createFileRoute("/")({
@@ -35,6 +35,8 @@ function Index() {
   return (
     <div className="relative min-h-screen text-foreground">
       <NeonFrame />
+      <CursorGlow />
+      <Scanlines />
       <Nav />
       <main className="relative z-10">
         <Hero />
@@ -75,7 +77,7 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: React.
 
 function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`glass glow-border p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(80,180,255,0.35)] ${className}`}>
+    <div className={`glass glow-border sheen p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgba(80,180,255,0.35)] ${className}`}>
       {children}
     </div>
   );
