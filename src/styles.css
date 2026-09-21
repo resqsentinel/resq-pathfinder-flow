@@ -264,9 +264,71 @@
     animation: grid-move 20s linear infinite;
   }
 
+  /* Sheen sweep across cards on hover */
+  .sheen { position: relative; overflow: hidden; }
+  .sheen::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, oklch(1 0 0 / 9%), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.9s ease;
+    pointer-events: none;
+  }
+  .sheen:hover::after { left: 130%; }
+
+  /* Slow shimmering gradient text */
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  .text-shimmer {
+    background: var(--gradient-text);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 7s linear infinite;
+  }
+
+  /* CRT scanlines + travelling scan beam */
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      oklch(0.72 0.2 235 / 3%) 0 1px,
+      transparent 1px 3px
+    );
+  }
+  @keyframes scan-beam {
+    0% { top: -15%; }
+    100% { top: 110%; }
+  }
+  .scan-beam {
+    height: 140px;
+    background: linear-gradient(180deg, transparent, oklch(0.78 0.16 219 / 6%), transparent);
+    animation: scan-beam 10s linear infinite;
+  }
+
+  /* Drifting aurora blobs for ambient depth */
+  @keyframes aurora-drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -35px) scale(1.1); }
+    66% { transform: translate(-40px, 25px) scale(0.94); }
+  }
+  .aurora {
+    border-radius: 9999px;
+    filter: blur(90px);
+    animation: aurora-drift 16s ease-in-out infinite;
+  }
+
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .animate-float { animation: none !important; }
+    .sheen::after { display: none; }
+    .text-shimmer, .scan-beam, .aurora { animation: none !important; }
   }
 
   @keyframes dashed-flow {
