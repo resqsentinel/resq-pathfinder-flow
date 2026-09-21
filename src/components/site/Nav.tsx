@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Instagram } from "lucide-react";
 
 const links = [
   ["Mission", "#problem"],
@@ -48,12 +49,24 @@ export function Nav() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="border border-primary/40 bg-primary/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground md:px-5"
-        >
-          Launch Demo
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="https://www.instagram.com/resqsentinel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="ResQ Sentinel on Instagram"
+            className="group relative grid h-9 w-9 place-items-center border border-primary/30 bg-primary/5 text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary hover:shadow-[0_0_24px_-6px_var(--neon-blue)]"
+          >
+            <span className="absolute inset-1 border border-primary/15 transition-transform duration-500 group-hover:rotate-45" />
+            <Instagram className="relative h-4 w-4" />
+          </a>
+          <a
+            href="#contact"
+            className="border border-primary/40 bg-primary/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground md:px-5"
+          >
+            Launch Demo
+          </a>
+        </div>
       </div>
     </header>
   );
