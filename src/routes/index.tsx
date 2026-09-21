@@ -94,8 +94,12 @@ function IconChip({ Icon }: { Icon: React.ComponentType<{ className?: string }> 
 
 function Hero() {
   return (
-    <section id="home" className="hero-cinematic relative flex min-h-[94vh] items-center overflow-hidden pb-20 pt-28 md:pb-24 md:pt-32">
+    <section id="home" className="hero-cinematic hero-overdrive relative flex min-h-[94vh] items-center overflow-hidden pb-20 pt-28 md:pb-24 md:pt-32">
       <div className="hero-horizon absolute inset-0" aria-hidden />
+      <div className="hero-grid-scan absolute inset-0" aria-hidden />
+      <div className="hero-orbit hero-orbit-a absolute left-1/2 top-[53%] h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full" aria-hidden />
+      <div className="hero-orbit hero-orbit-b absolute left-1/2 top-[53%] h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full" aria-hidden />
+      <div className="hero-crosshair absolute left-1/2 top-[53%] h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2" aria-hidden />
       <div className="aurora absolute -left-32 top-1/4 h-96 w-96 bg-[var(--neon-blue)]/10" aria-hidden />
       <div className="aurora absolute -right-24 top-10 h-80 w-80 bg-[var(--neon-cyan)]/10" aria-hidden style={{ animationDelay: "-6s" }} />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" aria-hidden />
@@ -128,8 +132,11 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-8 h-56 max-w-3xl sm:h-64 md:mt-4 md:h-72">
+        <div className="drone-stage relative mx-auto mt-8 h-56 max-w-3xl sm:h-64 md:mt-4 md:h-72">
           <div className="absolute left-1/2 top-1/2 h-32 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" aria-hidden />
+          <div className="drone-ring drone-ring-one absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full" aria-hidden />
+          <div className="drone-ring drone-ring-two absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full" aria-hidden />
+          <div className="drone-scan absolute left-1/2 top-1/2 h-1/2 w-[115%] -translate-x-1/2 -translate-y-1/2" aria-hidden />
           <img src={droneGraphic} alt="ResQ Sentinel autonomous six-rotor drone" className="relative mx-auto h-full w-full object-contain drop-shadow-[0_22px_36px_var(--drone-shadow)] animate-float" loading="eager" width={1024} height={1024} />
         </div>
 

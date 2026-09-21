@@ -324,11 +324,120 @@
     animation: aurora-drift 16s ease-in-out infinite;
   }
 
+  /* Cinematic hero depth layers: decorative only, with no layout impact. */
+  .hero-overdrive {
+    isolation: isolate;
+  }
+  .hero-grid-scan {
+    background-image:
+      linear-gradient(oklch(0.78 0.16 219 / 5%) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.78 0.16 219 / 5%) 1px, transparent 1px);
+    background-size: 96px 96px;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 68%);
+    opacity: 0.7;
+    animation: grid-drift 24s linear infinite;
+  }
+  @keyframes grid-drift {
+    from { transform: perspective(700px) rotateX(62deg) translateY(-8%); background-position: 0 0; }
+    to { transform: perspective(700px) rotateX(62deg) translateY(5%); background-position: 96px 96px; }
+  }
+  .hero-orbit {
+    border: 1px solid oklch(0.78 0.16 219 / 16%);
+    box-shadow: 0 0 36px oklch(0.78 0.16 219 / 8%), inset 0 0 36px oklch(0.78 0.16 219 / 5%);
+    pointer-events: none;
+  }
+  .hero-orbit::after {
+    content: "";
+    position: absolute;
+    inset: 8%;
+    border: 1px dashed oklch(0.78 0.16 219 / 18%);
+    border-radius: inherit;
+  }
+  .hero-orbit-a { animation: orbit-spin 26s linear infinite; }
+  .hero-orbit-b { animation: orbit-spin 18s linear infinite reverse; border-color: oklch(0.65 0.25 20 / 18%); }
+  @keyframes orbit-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+  .hero-crosshair {
+    border: 1px solid oklch(0.78 0.16 219 / 6%);
+    border-radius: 9999px;
+    background:
+      linear-gradient(90deg, transparent 49.8%, oklch(0.78 0.16 219 / 18%) 50%, transparent 50.2%),
+      linear-gradient(0deg, transparent 49.8%, oklch(0.78 0.16 219 / 18%) 50%, transparent 50.2%);
+    opacity: 0.55;
+    animation: crosshair-breathe 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes crosshair-breathe {
+    0%, 100% { opacity: 0.25; transform: translate(-50%, -50%) scale(0.94); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  }
+  .drone-stage { isolation: isolate; }
+  .drone-stage::before,
+  .drone-stage::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 9999px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .drone-stage::before {
+    width: 42%;
+    height: 42%;
+    background: oklch(0.78 0.16 219 / 18%);
+    filter: blur(28px);
+    animation: core-pulse 2.8s ease-in-out infinite;
+  }
+  .drone-stage::after {
+    width: 62%;
+    height: 16%;
+    border: 1px solid oklch(0.78 0.16 219 / 24%);
+    box-shadow: 0 0 30px oklch(0.78 0.16 219 / 22%);
+    animation: wash-pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes core-pulse {
+    0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(0.84); }
+    50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.12); }
+  }
+  @keyframes wash-pulse {
+    0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scaleX(0.86); }
+    50% { opacity: 0.8; transform: translate(-50%, -50%) scaleX(1.08); }
+  }
+  .drone-ring {
+    border: 1px solid oklch(0.78 0.16 219 / 25%);
+    border-left-color: transparent;
+    border-bottom-color: oklch(0.65 0.25 20 / 36%);
+    pointer-events: none;
+  }
+  .drone-ring-one { animation: orbit-spin 10s linear infinite; }
+  .drone-ring-two { animation: orbit-spin 15s linear infinite reverse; border-style: dashed; opacity: 0.65; }
+  .drone-scan {
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .drone-scan::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: -20%;
+    height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 16px 2px var(--neon-cyan);
+    opacity: 0.75;
+    animation: drone-scan 3.2s ease-in-out infinite;
+  }
+  @keyframes drone-scan {
+    0%, 100% { transform: translateY(0); opacity: 0; }
+    12%, 88% { opacity: 0.85; }
+    50% { transform: translateY(300%); }
+  }
+
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .animate-float { animation: none !important; }
     .sheen::after { display: none; }
-    .text-shimmer, .scan-beam, .aurora { animation: none !important; }
+    .text-shimmer, .scan-beam, .aurora, .hero-grid-scan, .hero-orbit, .hero-crosshair,
+    .drone-stage::before, .drone-stage::after, .drone-ring, .drone-scan::after { animation: none !important; }
   }
 
   @keyframes dashed-flow {
