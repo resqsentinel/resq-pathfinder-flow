@@ -106,12 +106,12 @@ function Hero() {
             Introducing ResQ Sentinel
           </p>
           <h1 className="font-display text-5xl font-light uppercase leading-[0.88] md:text-8xl lg:text-9xl">
-            Clear the path.
-            <span className="mt-2 block font-bold text-gradient">Before every second counts.</span>
+            WHEN EVERY SECOND MATTERS,&nbsp;
+            <span className="mt-2 block font-bold text-gradient">WE FLY AHEAD</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-base font-light leading-relaxed text-muted-foreground md:text-lg">
             Autonomous aerial intelligence that moves ahead of ambulances, warns traffic early,
-            and protects the minutes that decide outcomes.
+            and protects the minutes that decide outcomes
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-5 sm:flex-row">
@@ -130,7 +130,7 @@ function Hero() {
         </div>
 
         <div className="mx-auto grid max-w-2xl grid-cols-3 border-y border-border/70 py-4">
-          {[["< 30s", "Launch"], ["2 KM", "Range"], ["24/7", "Standby"]].map(([value, label]) => (
+          {[["< 30s", "Launch"], ["1 KM", "Range"], ["24/7", "Standby"]].map(([value, label]) => (
             <div key={label} className="border-r border-border/70 px-2 last:border-r-0">
               <div className="font-display text-lg font-bold text-foreground md:text-xl">{value}</div>
               <div className="mt-1 text-[8px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-[9px]">{label}</div>
@@ -651,7 +651,7 @@ function Closing() {
         </div>
         <h2 className="text-4xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
           Every Second Saved Is{" "}
-          <span className="text-gradient neon-text">A Life Protected.</span>
+           <span className="text-gradient neon-text">A Life Protected</span>
         </h2>
         <p className="mt-8 text-base md:text-xl text-muted-foreground max-w-2xl mx-auto">
           ResQ Sentinel is redefining emergency response through autonomous aerial traffic management.
@@ -692,7 +692,7 @@ function Abstract() {
           </div>
           <div className="reveal grid gap-4">
             {[
-              { k: "Lead Time", v: "≈ 5 min", l: "Ahead of ambulance" },
+              { k: "LEAD DISTANCE", v: "≈ 100-200m", l: "Ahead of ambulance" },
               { k: "Mode", v: "Autonomous", l: "GPS waypoint flight" },
               { k: "Alerts", v: "Tri-Modal", l: "Siren · LED · Voice" },
             ].map((s) => (
@@ -758,7 +758,7 @@ function Objectives() {
 
 function AmbulanceIntegration() {
   const channels = [
-    { Icon: ListChecks, title: "Pre-Programmed Mission", d: "Hospitals and dispatch upload pre-validated mission plans for common corridors." },
+    { Icon: ListChecks, title: "Pre-Programmed Mission", d: "Hospitals and dispatch send GPS based route plans for common corridors" },
     { Icon: Radio, title: "Real-Time Transmission", d: "Live routes are streamed from a mobile or control system the moment dispatch occurs." },
     { Icon: Brain, title: "Shortest Route Prediction", d: "ML model predicts the fastest path the ambulance is likely to take and dispatches accordingly." },
   ];
