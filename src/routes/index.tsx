@@ -130,7 +130,7 @@ function Hero() {
         </div>
 
         <div className="mx-auto grid max-w-2xl grid-cols-3 border-y border-border/70 py-4">
-          {[["< 30s", "Launch"], ["2 KM", "Range"], ["24/7", "Standby"]].map(([value, label]) => (
+          {[["< 30s", "Launch"], ["1 KM", "Range"], ["24/7", "Standby"]].map(([value, label]) => (
             <div key={label} className="border-r border-border/70 px-2 last:border-r-0">
               <div className="font-display text-lg font-bold text-foreground md:text-xl">{value}</div>
               <div className="mt-1 text-[8px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-[9px]">{label}</div>
