@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 /** Continuous neon LED strip running around the viewport edges. */
 export function NeonFrame() {
